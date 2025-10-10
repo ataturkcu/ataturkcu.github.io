@@ -40,15 +40,15 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'about-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('about')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('about')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('about')"></button>
             </div>
             <div class="window-title">About</div>
         </div>
         <div class="window-body">
             Hey there! I’m a high school student and indie developer from Türkiye. I love building things entirely from scratch, because I want every project to feel truly mine. I started programming in 2019, and since then, I’ve been obsessed with improving myself and growing past who I was yesterday.<br><br>
             My biggest project is a web browser created completely from the ground up, not a Chromium or Firefox fork. I’m even developing my own JavaScript engine. I believe the internet should be genuinely free. People say it already is, but most of the time, we pay with our data, and that doesn’t feel like real freedom to me.<br><br>
-            With my browser, Solar, my goal is to build the fastest, most elegant, open-source, and privacy-focused browser ever. Maybe it sounds impossible, but it won’t be. The experience and meaning it gives me are priceless.
+            With my browser, Solar, my goal is to build the fastest, most elegant, open-source, and privacy-focused browser ever. Maybe it sounds impossible, but it won’t be. The experience and meaning it gives me are priceless.<br><br><br><br>
         </div>
     </div>
 
@@ -56,8 +56,8 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'skills-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('skills')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('skills')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('skills')"></button>
             </div>
             <div class="window-title">Skills</div>
         </div>
@@ -148,8 +148,8 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'projects-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('projects')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('projects')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('projects')"></button>
             </div>
             <div class="window-title">Projects</div>
         </div>
@@ -162,8 +162,8 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'contact-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('contact')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('contact')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('contact')"></button>
             </div>
             <div class="window-title">Contact</div>
         </div>
@@ -193,8 +193,8 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'certificates-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('certificates')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('certificates')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('certificates')"></button>
             </div>
             <div class="window-title">Certificates</div>
         </div>
@@ -207,8 +207,8 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'github-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('github')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('github')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('github')"></button>
             </div>
             <div class="window-title">GitHub Repositories</div>
         </div>
@@ -221,8 +221,8 @@ Welcome!
         <div class="window-header" onmousedown="startDrag(event, 'terminal-window')">
             <div class="window-controls">
                 <button class="control-btn close-btn" onclick="closeWindow('terminal')"></button>
-                <button class="control-btn minimize-btn"></button>
-                <button class="control-btn maximize-btn"></button>
+                <button class="control-btn minimize-btn" onclick="minimizeWindow('terminal')"></button>
+                <button class="control-btn maximize-btn" onclick="maximizeWindow('terminal')"></button>
             </div>
             <div class="window-title">Terminal</div>
         </div>
@@ -233,6 +233,10 @@ easter@ataturkcu.me>
             </div>
             <input type="text" id="terminal-input" style="display: none;" />
         </div>
+    </div>
+
+    <div id="taskbar" style="display: none;">
+        <div id="taskbar-items"></div>
     </div>
 
     <script src="script.js"></script>

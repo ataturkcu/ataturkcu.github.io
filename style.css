@@ -75,6 +75,11 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
+#about-window {
+    width: 552px;
+    height: 402px;
+}
+
 #terminal-window {
     background: var(--window-bg);
     border: 1px solid var(--border-color);
@@ -190,6 +195,14 @@ body {
     overflow-y: auto;
 }
 
+#about-window .window-body {
+    padding-bottom: 0;
+}
+
+#github-window .window-body {
+    padding-bottom: 60px;
+}
+
 .theme-toggle {
     position: absolute;
     top: 20px;
@@ -226,7 +239,7 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: 150px;
     gap: 15px;
 }
 
@@ -240,6 +253,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.skill-item:last-child {
+    grid-column: span 1;
 }
 
 .skill-item:hover {
@@ -256,6 +273,7 @@ body {
 .skill-name {
     font-weight: bold;
     margin-bottom: 10px;
+    word-break: break-all;
 }
 
 .skill-name a {
@@ -357,7 +375,48 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
     padding-bottom: 40px;
+}
+
+.taskbar-item {
+    display: inline-block;
+    background: var(--window-bg);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.taskbar-item button {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.taskbar-item .close-btn {
+    background: #ff5f57;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+}
+
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 100;
 }

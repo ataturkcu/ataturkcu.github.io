@@ -7,6 +7,29 @@ const menuItems = document.querySelectorAll('.menu-item');
 let currentCommand = '';
 let isSnake = false;
 
+document.getElementById('terminal-input').addEventListener('input', function(e) {
+    currentCommand = e.target.value;
+    updatePrompt(document.getElementById('terminal-output'), currentCommand);
+});
+
+document.getElementById('terminal-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        const command = currentCommand.trim().toLowerCase();
+        const output = document.getElementById('terminal-output');
+        const response = handleCommand(command, output);
+        if (response === 'snake') {
+            isSnake = true;
+            startSnake(output);
+        } else {
+            output.innerHTML += 'guest@ataturkcu.me> ' + currentCommand + '<br>' + response + '<br>guest@ataturkcu.me> <span class="blink">_</span>';
+        }
+        currentCommand = '';
+        e.target.value = '';
+        updatePrompt(output, currentCommand);
+        output.scrollTop = output.scrollHeight;
+    }
+});
+
 function updateSelection() {
     menuItems.forEach((item, index) => {
         item.classList.toggle('selected', index === selectedIndex);
@@ -58,11 +81,53 @@ function openWindow(id) {
         output.innerHTML = 'guest@ataturkcu.me> <span class="blink">_</span>';
         currentCommand = '';
         isSnake = false;
+        document.getElementById('terminal-input').focus();
     }
 }
 
 function closeWindow(id) {
     document.getElementById(id + '-window').style.display = 'none';
+    removeFromTaskbar(id);
+}
+
+function minimizeWindow(id) {
+    document.getElementById(id + '-window').style.display = 'none';
+    addToTaskbar(id);
+}
+
+function restoreWindow(id) {
+    document.getElementById(id + '-window').style.display = 'block';
+    bringToFront(id + '-window');
+    removeFromTaskbar(id);
+}
+
+function addToTaskbar(id) {
+    const taskbar = document.getElementById('taskbar-items');
+    const item = document.createElement('div');
+    item.className = 'taskbar-item';
+    item.innerHTML = `${id.charAt(0).toUpperCase() + id.slice(1)} <button class="close-btn" onclick="closeWindow('${id}')"></button>`;
+    item.onclick = () => restoreWindow(id);
+    taskbar.appendChild(item);
+    document.getElementById('taskbar').style.display = 'flex';
+}
+
+function maximizeWindow(id) {
+    const w = document.getElementById(id + '-window');
+    w.style.width = '800px';
+    w.style.height = '600px';
+    bringToFront(id + '-window');
+}
+
+function removeFromTaskbar(id) {
+    const items = document.querySelectorAll('.taskbar-item');
+    items.forEach(item => {
+        if (item.textContent.includes(id.charAt(0).toUpperCase() + id.slice(1))) {
+            item.remove();
+        }
+    });
+    if (document.querySelectorAll('.taskbar-item').length === 0) {
+        document.getElementById('taskbar').style.display = 'none';
+    }
 }
 
 function bringToFront(id) {
@@ -456,3 +521,7 @@ function startSnake(output) {
     const originalHandler = window.handleSnakeInput;
     window.handleSnakeInput = window.handleSnakeInput;
 }
+
+document.getElementById('terminal-window').addEventListener('click', function() {
+    document.getElementById('terminal-input').focus();
+});
