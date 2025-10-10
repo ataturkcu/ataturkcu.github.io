@@ -1,1 +1,240 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ataturkcu.me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <div class="ascii-art">
+        <pre>
+             __                  __                          __                                                      
+            /  |                /  |                        /  |                                                     
+  ______   _$$ |_     ______   _$$ |_    __    __   ______  $$ |   __   _______  __    __     _____  ____    ______  
+ /      \ / $$   |   /      \ / $$   |  /  |  /  | /      \ $$ |  /  | /       |/  |  /  |   /     \/    \  /      \ 
+ $$$$$$  |$$$$$$/    $$$$$$  |$$$$$$/   $$ |  $$ |/$$$$$$  |$$ |_/$$/ /$$$$$$$/ $$ |  $$ |   $$$$$$ $$$$  |/$$$$$$  |
+ /    $$ |  $$ | __  /    $$ |  $$ | __ $$ |  $$ |$$ |  $$/ $$   $$<  $$ |      $$ |  $$ |   $$ | $$ | $$ |$$    $$ |
+/$$$$$$$ |  $$ |/  |/$$$$$$$ |  $$ |/  |$$ \__$$ |$$ |      $$$$$$  \ $$ \_____ $$ \__$$ |__ $$ | $$ | $$ |$$$$$$$$/ 
+$$    $$ |  $$  $$/ $$    $$ |  $$  $$/ $$    $$/ $$ |      $$ | $$  |$$       |$$    $$//  |$$ | $$ | $$ |$$       |
+ $$$$$$$/    $$$$/   $$$$$$$/    $$$$/   $$$$$$/  $$/       $$/   $$/  $$$$$$$/  $$$$$$/ $$/ $$/  $$/  $$/  $$$$$$$/ 
+                                                                                                                                                                                                                      
+Welcome!
+        </pre>
+    </div>
+    <div class="guide">
+        Use arrow keys or mouse to navigate, Enter or click to select
+    </div>
+    <div class="menu">
+        <div class="menu-item selected" data-id="about" tabindex="0">About</div>
+        <div class="menu-item" data-id="skills" tabindex="0">Skills</div>
+        <div class="menu-item" data-id="projects" tabindex="0">Projects</div>
+        <div class="menu-item" data-id="contact" tabindex="0">Contact</div>
+        <div class="menu-item" data-id="certificates" tabindex="0">Certificates</div>
+        <div class="menu-item" data-id="github" tabindex="0">GitHub</div>
+        <div class="menu-item" data-id="terminal" tabindex="0">Terminal</div>
+    </div>
+
+    <div class="window" id="about-window">
+        <div class="window-header" onmousedown="startDrag(event, 'about-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('about')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">About</div>
+        </div>
+        <div class="window-body">
+            Hey there! I’m a high school student and indie developer from Türkiye. I love building things entirely from scratch, because I want every project to feel truly mine. I started programming in 2019, and since then, I’ve been obsessed with improving myself and growing past who I was yesterday.<br><br>
+            My biggest project is a web browser created completely from the ground up, not a Chromium or Firefox fork. I’m even developing my own JavaScript engine. I believe the internet should be genuinely free. People say it already is, but most of the time, we pay with our data, and that doesn’t feel like real freedom to me.<br><br>
+            With my browser, Solar, my goal is to build the fastest, most elegant, open-source, and privacy-focused browser ever. Maybe it sounds impossible, but it won’t be. The experience and meaning it gives me are priceless.
+        </div>
+    </div>
+
+    <div class="window" id="skills-window">
+        <div class="window-header" onmousedown="startDrag(event, 'skills-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('skills')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">Skills</div>
+        </div>
+        <div class="window-body">
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=html" alt="HTML" />
+                    <div class="skill-name">HTML</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=cpp" alt="C++" />
+                    <div class="skill-name">C++</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=js" alt="JavaScript" />
+                    <div class="skill-name">JavaScript</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=css" alt="CSS" />
+                    <div class="skill-name">CSS</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" />
+                    <div class="skill-name">TypeScript</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=git" alt="Git" />
+                    <div class="skill-name">Git</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 73%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=flutter" alt="Flutter" />
+                    <div class="skill-name">Flutter</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=dart" alt="Dart" />
+                    <div class="skill-name">Dart</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=firebase" alt="Firebase" />
+                    <div class="skill-name">Firebase</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=cs" alt="C#" />
+                    <div class="skill-name">C#</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%;"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=dotnet" alt=".NET" />
+                    <div class="skill-name">.NET</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="window" id="projects-window">
+        <div class="window-header" onmousedown="startDrag(event, 'projects-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('projects')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">Projects</div>
+        </div>
+        <div class="window-body">
+            <div id="projects"></div>
+        </div>
+    </div>
+
+    <div class="window" id="contact-window">
+        <div class="window-header" onmousedown="startDrag(event, 'contact-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('contact')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">Contact</div>
+        </div>
+        <div class="window-body">
+            <h4>Social</h4>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=github" alt="GitHub" />
+                    <div class="skill-name"><a href="https://github.com/ataturkcu" target="_blank">ataturkcu</a></div>
+                </div>
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=instagram" alt="Instagram" />
+                    <div class="skill-name"><a href="https://instagram.com/re4lata" target="_blank">@re4lata</a></div>
+                </div>
+            </div>
+            <h4>Contact</h4>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <img src="https://skillicons.dev/icons?i=gmail" alt="Email" />
+                    <div class="skill-name"><a href="mailto:turkcuata34@gmail.com">turkcuata34@gmail.com</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="window" id="certificates-window">
+        <div class="window-header" onmousedown="startDrag(event, 'certificates-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('certificates')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">Certificates</div>
+        </div>
+        <div class="window-body">
+            <div id="certificates"></div>
+        </div>
+    </div>
+
+    <div class="window" id="github-window">
+        <div class="window-header" onmousedown="startDrag(event, 'github-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('github')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">GitHub Repositories</div>
+        </div>
+        <div class="window-body repos" id="repos">
+            Loading repositories...
+        </div>
+    </div>
+
+    <div class="window" id="terminal-window">
+        <div class="window-header" onmousedown="startDrag(event, 'terminal-window')">
+            <div class="window-controls">
+                <button class="control-btn close-btn" onclick="closeWindow('terminal')"></button>
+                <button class="control-btn minimize-btn"></button>
+                <button class="control-btn maximize-btn"></button>
+            </div>
+            <div class="window-title">Terminal</div>
+        </div>
+        <div class="window-body">
+            <div id="terminal-output"><br>
+Type 'help' for commands.<br>
+easter@ataturkcu.me> 
+            </div>
+            <input type="text" id="terminal-input" style="display: none;" />
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
