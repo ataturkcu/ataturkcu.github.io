@@ -393,7 +393,7 @@ function updatePrompt(output, command) {
 function handleCommand(command, output) {
     console.log('Command received:', command);
     const commands = {
-        'help': 'Available commands: about, skills, projects, contact, certificates, github, terminal, clear, snake',
+        'help': 'Available commands: about, projects, contact, certificates, github, terminal, clear, snake',
         'about': () => { openWindow('about'); return 'Opening About window...'; },
         'skills': () => { openWindow('skills'); return 'Opening Skills window...'; },
         'projects': () => { openWindow('projects'); return 'Opening Projects window...'; },
